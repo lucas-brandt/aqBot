@@ -1,7 +1,7 @@
 from selenium import webdriver
 from tkinter import *
 
-currentVersion = "0.1"
+currentVersion = "0.1.1"
 browser = webdriver.Chrome(executable_path="chromedriver.exe")
 
 app = Tk()
@@ -21,7 +21,7 @@ def openBrowserGuardian():
     browser.get('https://guardian.battleon.com/Build30/game.asp?launchtype=medium/')
 
 def killOpponent():
-    browser.execute_script("javascript:document.embeds[0].SetVariable(\"_root.monster.intHP\", 0")
+    browser.execute_script("document.embeds[0].SetVariable(\"_root.monster.intHP\", 0)")
 
 def exitHandler():
     browser.quit()
