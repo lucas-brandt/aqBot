@@ -11,8 +11,16 @@ openButton = Button(app, text = "Open AdventureQuest")
 openButton.pack()
 openButtonGuardian = Button(app, text = "Open AdventureQuest (Guardians)")
 openButtonGuardian.pack()
+
 killButton = Button(app, text = "Kill Opponent")
 killButton.pack()
+mpButton = Button(app, text = "Refill MP for one turn")
+mpButton.pack()
+spButton = Button(app, text = "Refill SP for one turn")
+spButton.pack()
+healButton = Button(app, text = "Full Heal")
+healButton.pack()
+
 
 def openBrowser():
     browser.get('https://aq.battleon.com/Build30/game.asp?launchtype=medium/')
@@ -22,6 +30,15 @@ def openBrowserGuardian():
 
 def killOpponent():
     browser.execute_script("document.embeds[0].SetVariable(\"_root.monster.intHP\", 0)")
+
+def refillMP():
+    browser.execute_script("document.embeds[0].SetVariable(\"_root.player.intMP\", 9999)")
+
+def refillSP():
+    browser.execute_script("document.embeds[0].SetVariable(\"_root.player.intSP\", 9999)")
+
+def fullHeal():
+    browser.execute_script("document.embeds[0].SetVariable(\"_root.player.intHP\", 9999)")
 
 def exitHandler():
     browser.quit()
