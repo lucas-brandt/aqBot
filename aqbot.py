@@ -2,33 +2,20 @@ from selenium import webdriver
 from tkinter import *
 from threading import Timer
 from repeatedTimer import RepeatedTimer
+import gui
 
-CURRENT_VERSION = "0.2.1"
+CURRENT_VERSION = "0.3"
+APP = 0
+ELEMENT = 1
 
 buttonSwitch = True
 browser = webdriver.Chrome(executable_path="chromedriver.exe")
 
 app = Tk()
-app.title("aqBot v" + CURRENT_VERSION)
-app.minsize(width=300, height=300)
-openButton = Button(app, text = "Open AdventureQuest")
-openButton.pack()
-openButtonGuardian = Button(app, text = "Open AdventureQuest (Guardians)")
-openButtonGuardian.pack()
-
-zeroButton = Button(app, text="Set Opponent Health to 0")
-zeroButton.pack()
-killButton = Button(app, text="Kill Opponent")
-killButton.pack()
-mpButton = Button(app, text="Refill MP for one turn")
-mpButton.pack()
-spButton = Button(app, text="Refill SP for one turn")
-spButton.pack()
-healButton = Button(app, text="Full Heal")
-healButton.pack()
-infiniteButton = Button(app, text="Infinite HP/SP/MP")
-infiniteButton.pack()
-
+app.withdraw()
+appTuple = gui.create_aqBot(app)
+appTuple[APP].title("aqBot v" + CURRENT_VERSION)
+appTuple[ELEMENT].title.configure(text="aqBot v" + CURRENT_VERSION)
 
 def openBrowser():
     browser.get('https://aq.battleon.com/Build30/game.asp?launchtype=medium/')
@@ -82,14 +69,14 @@ def exitHandler():
     browser.quit()
     app.destroy()
 
-openButton.configure(command=openBrowser)
-openButtonGuardian.configure(command=openBrowserGuardian)
-zeroButton.configure(command=setToZero)
-killButton.configure(command=killMonster)
-mpButton.configure(command=refillMP)
-spButton.configure(command=refillSP)
-healButton.configure(command=fullHeal)
-infiniteButton.configure(command=infiniteStatsControl)
+appTuple[ELEMENT].openAQ.configure(command=openBrowser)
+appTuple[ELEMENT].openAQG.configure(command=openBrowserGuardian)
+appTuple[ELEMENT].kill.configure(command=killMonster)
+appTuple[ELEMENT].infinite.configure(command=infiniteStatsControl)
+appTuple[ELEMENT].refillMP.configure(command=refillMP)
+appTuple[ELEMENT].refillSP.configure(command=refillSP)
+appTuple[ELEMENT].refillHP.configure(command=fullHeal)
+appTuple[ELEMENT].setZero.configure(command=setToZero)
 
-app.protocol("WM_DELETE_WINDOW", exitHandler)
+appTuple[APP].protocol("WM_DELETE_WINDOW", exitHandler)
 app.mainloop()
