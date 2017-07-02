@@ -1,3 +1,7 @@
+############################
+# Generated code from PAGE #
+############################
+
 import sys
 from tkinter import *
 import tkinter.ttk as ttk
