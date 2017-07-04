@@ -4,6 +4,9 @@ A simple program that automates the game play of the single player RPG game Adve
 ## FAQ
 If you downloaded the program and have questions, most likely they will be answered in this section.
 
+#### How do I download/use aqBot?
+If you are interested in the code itself you can simply clone this repository and run/edit the file titled "aqbot.py". Alternatively, you can navigate to the the latest release (in the release tab) and download the zip file attached. From there all you will need to do is run the file named "aqbot.exe".
+
 #### What is the difference between the "Open Adventure Quest" and the "Open Adventure Quest (G)" button?
 The "Open Adventure Quest" button will open the default (f2p) version of AdventureQuest, while the "Open Adventure Quest (G)" button will open the (p2p) Guardian only version of AdventureQuest.
 
